@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARYGENERATIONS</title>
+
+    <style>
+        /* Styles for the photo carousel */
+        .carousel-container {
+            max-width: 400px;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>SCARY</h1>
+
+    <!-- Photo Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-slide">
+            <img src="IMG_2434.jpg" alt="Image 1">
+        </div>
+        <div class="carousel-slide">
+            <img src="IMG_2435.jpg" alt="Image 2">
+        </div>
+        <div class="carousel-slide">
+            <img src="IMG_2436.jpg" alt="Image 3">
+        </div>
+
+        <!-- Add more slides as needed -->
+
+        <!-- Navigation buttons -->
+        <button onclick="prevSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        // JavaScript for the photo carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Show the initial slide
+        showSlide(currentSlide);
+    </script>
+
+</body>
+</html>
